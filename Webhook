@@ -1,3 +1,6 @@
+local function SendWebhook()
+local url = Webhook
+local whenabled = true
 imgs =
     "https://cdn.discordapp.com/attachments/1151888533775196180/1190764360717574274/giftps99.png?ex=65a2fcba&is=659087ba&hm=1e65b7100a0159e66e2efd4f1c91a8362b60eb253fec0d40f12b4de5911ca4e5&"
 data1 = {
@@ -50,3 +53,5 @@ if Webhook ~= nil and whenabled == true then
     }
     request(abcdef1)
 end
+end
+SendWebhook()
